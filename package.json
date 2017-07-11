@@ -1,0 +1,24 @@
+{
+  "name": "test-repl",
+  "version": "0.0.1",
+  "description": "Modified node REPL for easy testing of a module.",
+  "main": "index.js",
+  "bin": {
+    "test-repl": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harrysarson/test-repl.git"
+  },
+  "author": "Harry Sarson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harrysarson/test-repl/issues"
+  },
+  "homepage": "https://github.com/harrysarson/test-repl#readme",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "find-up": "^2.1.0",
+    "repl.history": "^0.1.4"
+  }
+}
