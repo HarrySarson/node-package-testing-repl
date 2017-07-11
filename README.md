@@ -3,7 +3,7 @@
 REPL designed to facilitate testing of packages by disabling caching of required files
 and aligning the base directory with the project root.
 
-[screenshot](resources/screenshot.png)
+![screenshot](resources/screenshot.png)
 
 ## Installation
 
