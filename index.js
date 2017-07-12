@@ -5,16 +5,16 @@
 const os            = require('os')
     , path          = require('path')
     , repl          = require('repl')
-    
+
     , chalk         = require('chalk')
     , findUp        = require('find-up')
     , replHistory   = require('repl.history')
     ;
 
 const replHistoryFile = path.join(os.homedir(), '.node-test-repl-history');
-  
+
 function createCachelessRequire(rootpath) {
-  
+
   function cachelessRequire(filePath = '') {
     let modulePath;
 
@@ -22,7 +22,7 @@ function createCachelessRequire(rootpath) {
      || filePath.startsWith('./')
      || filePath.startsWith('../')
      ) {
-    
+
       let basepath = path.resolve(rootpath, filePath);
       modulePath = require.resolve(basepath);
     } else {
@@ -32,7 +32,7 @@ function createCachelessRequire(rootpath) {
     delete require.cache[modulePath];
     return require(modulePath);
   }
-  
+
   cachelessRequire.resolve = require.resolve;
   return cachelessRequire;
 }
