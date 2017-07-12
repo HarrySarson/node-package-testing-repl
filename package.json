@@ -1,6 +1,6 @@
 {
   "name": "test-repl",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Modified node REPL for easy testing of a module.",
   "main": "index.js",
   "bin": {
