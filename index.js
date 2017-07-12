@@ -13,25 +13,30 @@ const os            = require('os')
 
 const replHistoryFile = path.join(os.homedir(), '.node-test-repl-history');
   
-function cachelessRequire(filePath = '') {
-  let modulePath;
+function createCachelessRequire(rootpath) {
   
-  if (filePath.startsWith('/') 
-   || filePath.startsWith('./')
-   || filePath.startsWith('../')
-   ) {
-  
-    let basepath = path.resolve(rootpath, filePath);
-    modulePath = require.resolve(basepath);
-  } else {
-    modulePath = filePath;
+  function cachelessRequire(filePath = '') {
+    let modulePath;
+
+    if (filePath.startsWith('/')
+     || filePath.startsWith('./')
+     || filePath.startsWith('../')
+     ) {
+    
+      let basepath = path.resolve(rootpath, filePath);
+      modulePath = require.resolve(basepath);
+    } else {
+      modulePath = filePath;
+    }
+
+    delete require.cache[modulePath];
+    return require(modulePath);
   }
   
-  delete require.cache[modulePath];
-  return require(modulePath);
+  cachelessRequire.resolve = require.resolve;
+  return cachelessRequire;
 }
 
-cachelessRequire.resolve = require.resolve;
 
 function main() {
 
@@ -86,7 +91,7 @@ function main() {
 
   replHistory(testingRepl, replHistoryFile);
 
-  testingRepl.context.require = cachelessRequire;
+  testingRepl.context.require = createCachelessRequire(rootpath);
 }
 
 main();
