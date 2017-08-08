@@ -19,6 +19,7 @@
   "dependencies": {
     "chalk": "^2.0.1",
     "find-up": "^2.1.0",
-    "repl.history": "^0.1.4"
+    "repl.history": "^0.1.4",
+    "resolve": "^1.4.0"
   }
 }
