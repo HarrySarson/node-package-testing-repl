@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/HarrySarson/test-repl.svg?branch=master)](https://travis-ci.org/HarrySarson/test-repl)
+
 # test-repl
 
 REPL designed to facilitate testing of packages by disabling caching of required files
