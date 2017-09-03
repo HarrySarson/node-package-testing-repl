@@ -3,3 +3,10 @@ node_js:
   - 4
   - 6
   - 8
+  
+notifications:
+  email:
+    recipients:
+        - harry.sarson@hotmail.co.uk
+    on_success: never
+    on_failure: always
