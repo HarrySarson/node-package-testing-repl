@@ -10,7 +10,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require babel-polyfill test/**.test.js"
+    "test": "mocha --compilers js:babel-register --require babel-polyfill test/**.test.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
     "tmp-promise": "^1.0.3",
@@ -39,11 +40,14 @@
   },
   "babel": {
     "presets": [
-      ["env", {
-        "targets": {
-          "node": "current"
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
         }
-      }]
+      ]
     ],
     "ignore": "test/resources/**"
   }
