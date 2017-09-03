@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path')
-,     {promisify} = require('util')
+,     promisify = require('util.promisify')
 ,     fs = require('fs');
 
 

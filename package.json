@@ -6,6 +6,9 @@
   "bin": {
     "test-repl": "index.js"
   },
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill test/**.test.js"
   },
@@ -31,10 +34,17 @@
     "babel-preset-env": "^1.6.0",
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
-    "tmp-promise": "^1.0.3"
+    "tmp-promise": "^1.0.3",
+    "util.promisify": "^1.0.0"
   },
   "babel": {
-    "presets": "env",
+    "presets": [
+      ["env", {
+        "targets": {
+          "node": "current"
+        }
+      }]
+    ],
     "ignore": "test/resources/**"
   }
 }
