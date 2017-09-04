@@ -36,19 +36,23 @@ describe('cacheless-require', function() {
       
       const cachelessRequire = createCachelessRequire(examplePackageRoot);
 
-      const filePath = await tmp.tmpName();
+      const filePath = path.join(examplePackageRoot, 'module.js');
+      const delegatingModulePathWithoutExtension = path.join(examplePackageRoot, 'delegating-module');
       
       await writeFile(filePath, await readFile(path.join(resourcesPath, 'module-1.js')));
       
       expect(cachelessRequire(filePath)).to.equal('module-1'); 
+      expect(cachelessRequire(delegatingModulePathWithoutExtension)).to.equal('module-1'); 
       
       await writeFile(filePath, await readFile(path.join(resourcesPath, 'module-2.js')));
       
       expect(cachelessRequire(filePath)).to.equal('module-2'); 
+      expect(cachelessRequire(delegatingModulePathWithoutExtension)).to.equal('module-2'); 
       
       await unlink(filePath);      
 
     });
+    
     
     it('should expose the resolve function', function() {
       
