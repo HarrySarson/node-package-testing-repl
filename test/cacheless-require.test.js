@@ -35,7 +35,7 @@ describe('cacheless-require', function() {
     it('should not cache modules', async function() {
       
       // todo - why does this take so long?
-      this.timeout = 4000;
+      this.timeout(4000);
       
       const cachelessRequire = createCachelessRequire(examplePackageRoot);
 
